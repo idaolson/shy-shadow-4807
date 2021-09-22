@@ -28,8 +28,8 @@ RSpec.describe Garden do
       @plot3.plants << @plant4
     end
 
-    it "returns garden's plants' names without duplicates if they take less than 100 days to harvest" do
-      expect(@garden.garden_plants).to eq(["tomato", "pea", "carrot"])
+    it "returns garden's plants' names w/out duplicates if less than 100 days to harvest ordered by number of appearances desc" do
+      expect(@garden.garden_plants).to eq(["pea", "tomato", "carrot"])
     end
   end
 end
