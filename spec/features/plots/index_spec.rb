@@ -47,13 +47,52 @@ RSpec.describe "plots index" do
       expect(page).to have_no_content(@plant3.name)
     end
   end
+
+  it "has a button to disassociate plants from plots" do
+    visit plots_path
+
+    # save_and_open_page
+
+    within("#plot-#{@plot1.id}") do
+      within("#plant-#{@plant1.id}") do
+        click_on "Remove"
+      end
+
+      expect(page).to have_no_content("tomato")
+      expect(page).to have_content("broccoli")
+      expect(current_path).to_eq(plots_path)
+    end
+
+    within("#plot-#{@plot2.id}") do
+      within("#plant-#{@plant2.id}") do
+        click_on "Remove"
+      end
+
+      expect(page).to have_no_content("carrot")
+      expect(current_path).to_eq(plots_path)
+    end
+
+    within("#plot-#{@plot3.id}") do
+      within("#plant-#{@plant4.id}") do
+        click_on "Remove"
+      end
+
+      expect(page).to have_no_content("pea")
+      expect(current_path).to_eq(plots_path)
+    end
+  end
 end
 
-#
+
+
 # ```
-# User Story 1, Plots Index Page
+# User Story 2, Remove a Plant from a Plot
 # As a visitor
-# When I visit the plots index page ('/plots')
-# I see a list of all plot numbers
-# And under each plot number I see names of all that plot's plants
+# When I visit a plot's index page
+# Next to each plant's name
+# I see a link to remove that plant from that plot
+# When I click on that link
+# I'm returned to the plots index page
+# And I no longer see that plant listed under that plot
+# (Note: you should not destroy the plant record entirely)
 # ```
