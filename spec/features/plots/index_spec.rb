@@ -60,7 +60,7 @@ RSpec.describe "plots index" do
 
       expect(page).to have_no_content("tomato")
       expect(page).to have_content("broccoli")
-      expect(current_path).to_eq(plots_path)
+      expect(current_path).to eq(plots_path)
     end
 
     within("#plot-#{@plot2.id}") do
@@ -69,7 +69,7 @@ RSpec.describe "plots index" do
       end
 
       expect(page).to have_no_content("carrot")
-      expect(current_path).to_eq(plots_path)
+      expect(current_path).to eq(plots_path)
     end
 
     within("#plot-#{@plot3.id}") do
@@ -78,7 +78,7 @@ RSpec.describe "plots index" do
       end
 
       expect(page).to have_no_content("pea")
-      expect(current_path).to_eq(plots_path)
+      expect(current_path).to eq(plots_path)
     end
   end
 end
