@@ -1,3 +1,5 @@
+# spec/models/plot_plants.rb
+
 require 'rails_helper'
 
 RSpec.describe PlotPlant do
