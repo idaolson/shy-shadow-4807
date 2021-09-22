@@ -80,6 +80,10 @@ RSpec.describe "plots index" do
       expect(page).to have_no_content("pea")
       expect(current_path).to eq(plots_path)
     end
+
+    expect(@plant1).to be_a(Plant)
+    expect(@plant2).to be_a(Plant)
+    expect(@plant4).to be_a(Plant)
   end
 end
 
